@@ -71,6 +71,10 @@ prefork = lambda {
 
     config.filter_run focus: true
     config.run_all_when_everything_filtered = true
+
+    # rspec-rails 3 will no longer automatically infer an example group's spec type
+    # from the file location. Explicitly opt-in to this feature using this snippet:
+    config.infer_spec_type_from_file_location!
   end
 
   def uploaded_file(filename, content_type)
