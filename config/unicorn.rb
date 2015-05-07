@@ -2,6 +2,10 @@ worker_processes Integer(ENV["WEB_CONCURRENCY"] || 2)
 timeout 25 # seconds, keep this lower than 30 if deployed to heroku
 preload_app true
 
+pid               "#{ENV['APP_PAHT']}/tmp/pids/unicorn.pid"
+listen            "#{ENV['APP_PAHT']}/tmp/sockets/unicorn.sock"
+working_directory "#{ENV['APP_PAHT']}"
+
 before_fork do |server, worker|
 
   Signal.trap 'TERM' do
@@ -13,6 +17,15 @@ before_fork do |server, worker|
   if defined?(ActiveRecord::Base)
     ActiveRecord::Base.connection.disconnect!
     Rails.logger.info('Disconnected from ActiveRecord')
+  end
+
+  # Graceful restart unicorn
+  old_pid = "#{server.config[:pid]}.oldbin"
+  if File.exists?(old_pid) && old_pid != server.pid
+    begin
+      Process.kill("QUIT", File.read(old_pid).to_i)
+    rescue Errno::ENOENT, Errno::ESRCH
+    end
   end
 
   # If you are using Redis but not Resque, change this
