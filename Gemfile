@@ -86,6 +86,7 @@ gem 'lograge'
 
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
+  gem 'dotenv-rails'
 end
 
 group :development, :test do
