@@ -1,10 +1,17 @@
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 2)
-timeout 25 # seconds, keep this lower than 30 if deployed to heroku
+timeout 60 # seconds, keep this lower than 30 if deployed to heroku
 preload_app true
 
-pid               "#{ENV['APP_PAHT']}/tmp/pids/unicorn.pid"
-listen            "#{ENV['APP_PAHT']}/tmp/sockets/unicorn.sock"
-working_directory "#{ENV['APP_PAHT']}"
+pid               "#{ENV['APP_PATH']}/tmp/pids/unicorn.pid"
+listen            "#{ENV['APP_PATH']}/tmp/sockets/unicorn.sock"
+working_directory "#{ENV['APP_PATH']}/current"
+
+stderr_path "#{ENV['APP_PATH']}/shared/log/fairone-web.log"
+stdout_path "#{ENV['APP_PATH']}/shared/log/fairone-web.log"
+
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = "#{ENV['APP_PATH']}/current/Gemfile"
+end
 
 before_fork do |server, worker|
 
