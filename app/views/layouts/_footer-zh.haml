@@ -1,0 +1,17 @@
+.row
+  .col-8
+    %ul.footer-nav
+      %li
+        = link_to t("header.home"), root_path
+      %li
+        = link_to t("header.about"), about_infos_path
+      %li
+        = link_to t("header.contact_us"), new_user_feedback_path
+      %li
+        = link_to t("header.invite"), new_invitation_path
+      %li
+        %a{:href => "#"} 常见问题
+  .col-4
+    %ul.copyright
+      %li
+        © 2015 HuaRenJS

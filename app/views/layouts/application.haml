@@ -84,3 +84,6 @@
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
   = render :partial => "layouts/noscript"
+
+  #footer
+    = render :partial => 'layouts/footer-zh'
