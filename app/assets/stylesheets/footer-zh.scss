@@ -13,10 +13,10 @@
 #footer {
   background: #f5f5f5;
   border-top: solid 1px #ddd;
-  padding: 2em 0;
+  padding: em(30) 0;
   .row {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-left: em(10);
+    padding-right: em(10);
     margin: 0 auto;
     max-width: 63em;
   }
@@ -26,7 +26,7 @@
   padding-left: 0;
   li {
     display: inline-block;
-    padding:0 0.3em;
+    padding:0 em(5);
   }
 }
 
