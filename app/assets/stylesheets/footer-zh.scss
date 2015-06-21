@@ -12,7 +12,7 @@
 
 #footer {
   background: #f5f5f5;
-  border-top: solid 1px #ddd;
+  border-top: solid 1px $link;
   padding: em(30) 0;
   .row {
     padding-left: em(10);
@@ -26,7 +26,7 @@
   padding-left: 0;
   li {
     display: inline-block;
-    padding:0 em(5);
+    padding:0 lines(1);
   }
 }
 

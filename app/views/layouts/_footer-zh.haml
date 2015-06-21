@@ -2,15 +2,13 @@
   .col-8
     %ul.footer-nav
       %li
-        = link_to t("header.home"), root_path
+        = link_to t("header.home"), root_path, :class => 'home-categories-link'
       %li
-        = link_to t("header.about"), about_infos_path
+        = link_to t("header.about"), about_infos_path, :class => 'home-categories-link'
       %li
-        = link_to t("header.contact_us"), new_user_feedback_path
+        = link_to t("header.contact_us"), new_user_feedback_path, :class => 'home-categories-link'
       %li
-        = link_to t("header.invite"), new_invitation_path
-      %li
-        %a{:href => "#"} 常见问题
+        = link_to t("header.invite"), new_invitation_path, :class => 'home-categories-link'
   .col-4
     %ul.copyright
       %li
