@@ -13,7 +13,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 set :user, 'fairone'
 set :domain, '128.199.161.161'
 set :deploy_to, '/home/fairone/sharetribe'
-set :repository, 'git@bitbucket.org:gotomk/fair-one.git'
+set :repository, 'git@bitbucket.org:banghuaren/jishi.git'
 set :branch, 'develop'
 set :rails_env, 'staging'
 
