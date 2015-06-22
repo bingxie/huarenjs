@@ -53,6 +53,7 @@ When(/^I select "(.*)" from the language menu$/) do |language|
 end
 
 When(/^I open the menu$/) do
+  pending
   find("#header-menu-desktop-anchor").click
 end
 
