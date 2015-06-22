@@ -1,0 +1,25 @@
+#header-menu-toggle-menu.toggle-menu.header-toggle-menu-menu.hidden
+
+  = link_to APP_CONFIG.domain do
+    = icon_tag("home", ["icon-with-text"])
+    = t("menu.home")
+
+  = link_to "http://auused.#{APP_CONFIG.domain}", :class => @current_community.ident == 'auused' ? 'current' : '' do
+    = icon_tag("new_listing", ["icon-with-text"])
+    = t("menu.used")
+
+  = link_to "http://aurent.#{APP_CONFIG.domain}", :class => @current_community.ident == 'aurent' ? 'current' : '' do
+    = icon_tag("information", ["icon-with-text"])
+    = t("menu.rent")
+
+  = link_to "http://aulife.#{APP_CONFIG.domain}", :class => @current_community.ident == 'aulife' ? 'current' : '' do
+    = icon_tag("feedback", ["icon-with-text"])
+    = t("menu.life")
+
+  = link_to "http://ausocial.#{APP_CONFIG.domain}", :class => @current_community.ident == 'ausocial' ? 'current' : '' do
+    = icon_tag("feedback", ["icon-with-text"])
+    = t("menu.social")
+
+  = link_to "http://aujob.#{APP_CONFIG.domain}", :class => @current_community.ident == 'aujob' ? 'current' : '' do
+    = icon_tag("invite", ["icon-with-text"])
+    = t("menu.job")

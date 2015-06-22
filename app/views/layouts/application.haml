@@ -8,6 +8,8 @@
 
   = render :partial => 'layouts/global-header'
 
+  = render :partial => 'layouts/menu_zh'
+
   - if @is_current_community_admin && @is_community_plan_expired
     = render partial: "layouts/expiration_notice"
 

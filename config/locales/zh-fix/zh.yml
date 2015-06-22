@@ -1,4 +1,11 @@
 zh:
+  menu:
+    home: 首页
+    used: 二手货
+    rent: 出租求租
+    life: 生活服务
+    social: 社交服务
+    job: 求职招聘
   date:
     abbr_day_names:
     - 周日
