@@ -2,11 +2,22 @@
   .col-8
     %ul.footer-nav
       %li
-        = link_to t("header.about"), about_infos_path, :class => 'home-categories-link'
+        = link_to about_infos_path, :class => 'home-categories-link' do
+          = icon_tag("information", ["icon-with-text"])
+          = t("header.about")
       %li
-        = link_to t("header.contact_us"), new_user_feedback_path, :class => 'home-categories-link'
+        = link_to new_user_feedback_path, :class => 'home-categories-link' do
+          = icon_tag("feedback", ["icon-with-text"])
+          = t("header.contact_us")
       %li
-        = link_to t("header.invite"), new_invitation_path, :class => 'home-categories-link'
+        = link_to new_invitation_path, :class => 'home-categories-link' do
+          = icon_tag("invite", ["icon-with-text"])
+          = t("header.invite")
+      %li
+        - if @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+          = link_to edit_details_admin_community_path(@current_community), :class => 'home-categories-link' do
+            = icon_tag("admin", ["icon-with-text"])
+            = t("layouts.logged_in.admin")
   .col-4
     %ul.copyright
       %li
