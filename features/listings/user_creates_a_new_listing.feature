@@ -78,9 +78,9 @@ Feature: User creates a new listing
     And I am on the homepage
     Then I should not see "Hammer"
     And I log in as "kassi_testperson3"
-    And I check "community_membership_consent"
-    And I press "Join Sharetribe"
-    And the system processes jobs
+    # And I check "community_membership_consent"
+    # And I press "Join Sharetribe"
+    # And the system processes jobs
     And I am on the homepage
     Then I should not see "Hammer"
 

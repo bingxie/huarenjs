@@ -339,7 +339,36 @@ class ApplicationController < ActionController::Base
 
       session[:invitation_code] = params[:code] if params[:code]
       flash.keep
-      redirect_to new_tribe_membership_path
+      join_community
+    end
+  end
+
+  def join_community
+    new_community_membership =
+      {
+        "community_id" => @current_community.id,
+        "consent"      => "SHARETRIBE1.0",
+        "person_id"    => @current_user.id
+      }
+    @community_membership = CommunityMembership.new(new_community_membership)
+
+    params[:invitation_code] ||= session[:invitation_code]
+    if Invitation.code_usable?(params[:invitation_code], @current_community)
+      invitation = Invitation.find_by_code(params[:invitation_code].upcase)
+      @community_membership.invitation = invitation if invitation.present?
+    end
+
+    # If the community doesn't have any members, make the first one an admin
+    if @current_community.members.count == 0
+      @community_membership.admin = true
+    end
+
+    if @community_membership.save
+      session[:fb_join] = nil
+      session[:invitation_code] = nil
+      # If invite was used, reduce usages left
+      invitation.use_once! if invitation.present?
+      redirect_to root
     end
   end
 

@@ -5,6 +5,7 @@ Feature: User joins another marketplace
 
   @move_to_subdomain2
   @javascript
+  @not_for_jishi
   Scenario: User joins another marketplace
     Given there are following users:
       | person |
@@ -23,6 +24,7 @@ Feature: User joins another marketplace
 
   @move_to_subdomain2
   @javascript
+  @not_for_jishi
   Scenario: User joins another marketplace that is invitation-only
     Given there are following users:
       | person |
@@ -47,6 +49,7 @@ Feature: User joins another marketplace
 
   @move_to_subdomain2
   @javascript
+  @not_for_jishi
   Scenario: User joins another marketplace that accepts only certain email addresses
     Given there are following users:
       | person            | email     | given_name | family_name |

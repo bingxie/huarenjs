@@ -69,7 +69,7 @@ class SessionsController < ApplicationController
 
     if not @current_community
       redirect_to new_tribe_path
-    elsif @current_user.communities.include?(@current_community) || @current_user.is_admin?
+    else
       flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
       if session[:return_to]
         redirect_to session[:return_to]
@@ -80,8 +80,6 @@ class SessionsController < ApplicationController
       else
         redirect_to root_path
       end
-    else
-      redirect_to new_tribe_membership_path
     end
   end
 
