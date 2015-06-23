@@ -1,19 +1,13 @@
 @import "mixins/all";
+@import "compass/layout/sticky-footer";
 
-#footer ul{
-  text-align: center;
-  width: 100%;
-
-  @include media(tablet) {
-    text-align: initial;
-    width: initial;
-  }
-}
+@include sticky-footer(90px, "#layout", "#layout_footer", "#footer");
 
 #footer {
   background: #f5f5f5;
   border-top: solid 1px $link;
   padding: em(30) 0;
+
   .row {
     padding-left: em(10);
     padding-right: em(10);
@@ -23,17 +17,18 @@
 }
 
 .footer-nav {
+  text-align: center;
+  width: 100%;
   padding-left: 0;
-  li {
-    display: inline-block;
-    padding:0 lines(1);
+
+  @include media(tablet) {
+    text-align: initial;
+    width: initial;
   }
-}
-
-.copyright {
-  float: right!important;
 
   li {
     display: inline-block;
+    padding:0 lines(0.5);
+    margin-bottom: em(10);
   }
 }

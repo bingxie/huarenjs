@@ -1,5 +1,5 @@
 .row
-  .col-8
+  .col-12
     %ul.footer-nav
       %li
         = link_to about_infos_path, :class => 'home-categories-link' do
@@ -18,7 +18,5 @@
           = link_to edit_details_admin_community_path(@current_community), :class => 'home-categories-link' do
             = icon_tag("admin", ["icon-with-text"])
             = t("layouts.logged_in.admin")
-  .col-4
-    %ul.copyright
       %li
         © 2015 HuaRenJS
