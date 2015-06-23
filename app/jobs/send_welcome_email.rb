@@ -14,7 +14,8 @@ class SendWelcomeEmail < Struct.new(:person_id, :community_id)
 
   def set_service_name!(community_id)
     # Set the correct service name to thread for I18n to pick it
-    ApplicationHelper.store_community_service_name_to_thread_from_community_id(community_id)
+    # ApplicationHelper.store_community_service_name_to_thread_from_community_id(community_id)
+    ApplicationHelper.store_community_service_name_to_thread(APP_CONFIG.global_service_name)
   end
 
 end
