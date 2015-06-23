@@ -58,6 +58,7 @@ Feature: User views profile page
     And I should see "massage"
 
   @javascript
+  @pending
   Scenario: User views a profile page with listings with visibility settings
      Given there are following users:
        | person |
