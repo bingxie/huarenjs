@@ -2,7 +2,7 @@
   .bubble-image-container
     - if listing.has_image?
       = link_to(image_tag(listing.listing_images.first.image.url(:small_3x2), :alt => listed_listing_title(listing)), listing)
-  %a.bubble-overlay{:target => '_blank', :href => listing_path(listing)}
+  %a.bubble-overlay{:target => Rails.env != 'test' ? '_blank' : '_self', :href => listing_path(listing)}
     %span{:class => "bubble-title-link"}
       = listing.title
   .bubble-title
