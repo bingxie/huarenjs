@@ -9,6 +9,12 @@ class HomepageController < ApplicationController
   def index
     @homepage = true
 
+    if @current_community.ident == 'www'
+      @listings = Listing.visible_to(nil, nil, [2,3,7,8])
+      render 'jishi_home/index'
+      return
+    end
+
     @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
 
     @categories = @current_community.categories.includes(:children)

@@ -6,6 +6,10 @@ zh:
     life: 生活服务
     social: 社交服务
     job: 求职招聘
+  homepage:
+    new_used: 最新二手货
+    new_rent: 最新出租房屋
+    see_more: 查看更多>>>
   date:
     abbr_day_names:
     - 周日

@@ -1,5 +1,10 @@
 @import "mixins/all";
 
+.link-more {
+  float: right;
+  font-size: em(12);
+}
+
 .menu-wraper {
   background: #E8E8E8 none repeat scroll 0% 0%;
 }

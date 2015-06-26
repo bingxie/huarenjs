@@ -1,0 +1,4 @@
+%li{:class => @current_community.ident == subdomain ? 'active' : ''}
+  %a{:href => "http://#{subdomain}.#{APP_CONFIG.domain}"}
+    %span
+      = link_text

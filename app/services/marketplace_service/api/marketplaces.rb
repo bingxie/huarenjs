@@ -4,7 +4,7 @@ module MarketplaceService::API
     CommunityModel = ::Community
 
     RESERVED_DOMAINS = [
-      "www",
+      # "www",
       "home",
       "sharetribe",
       "login",

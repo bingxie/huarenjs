@@ -25,7 +25,7 @@
       - else
         = render :partial => "search_bar"
 
-- if @current_community.private? && show_big_cover_photo?
+- if @current_community.private? && !@current_user
   - if @community_customization && @community_customization.private_community_homepage_content
     = @community_customization.private_community_homepage_content.html_safe
   - else

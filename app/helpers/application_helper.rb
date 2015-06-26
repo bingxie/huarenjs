@@ -437,11 +437,11 @@ module ApplicationHelper
   end
 
   def service_name
-    if @current_community
-      service_name = @current_community.name(I18n.locale)
-    else
+    # if @current_community
+    #   service_name = @current_community.name(I18n.locale)
+    # else
       service_name = APP_CONFIG.global_service_name || "Sharetribe"
-    end
+    # end
     return service_name
   end
 
@@ -836,6 +836,12 @@ module ApplicationHelper
     link_to(listing.author.name(@current_community), listing.author, {:title => listing.author.name(@current_community)})
   end
 
+  def nav_v_link(subdomain, link_text, icon_name = nil)
+    link_to "http://#{subdomain}.#{APP_CONFIG.domain}", :class => @current_community.ident == subdomain ? 'current' : '' do
+      icon_tag(icon_name, ["icon-with-text"]) + link_text
+    end
+  end
+
   def with_available_locales(&block)
     if available_locales.size > 1
       block.call(available_locales)
@@ -874,7 +880,8 @@ module ApplicationHelper
   end
 
   def show_big_cover_photo?
-    @homepage && (!@current_user || params[:big_cover_photo])
+    # @homepage && (!@current_user || params[:big_cover_photo])
+    @current_community.ident == 'www' || params[:big_cover_photo]
   end
 
   def sort_link_direction(column)
