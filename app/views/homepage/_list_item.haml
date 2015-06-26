@@ -1,7 +1,7 @@
 - frontpage_fragment_cache("list_item", listing) do
   .home-list-item
     - if listing.listing_images.size > 0
-      = link_to listing, :class => "home-list-image-container-desktop", :target => Rails.env != 'test' ? '_blank' : '_self' if Rails.env != 'test' do
+      = link_to listing, :class => "home-list-image-container-desktop", :target => Rails.env != 'test' ? '_blank' : '_self' do
         = image_tag listing.listing_images.first.image.url(:small_3x2), {:alt => listed_listing_title(listing), :class => "home-list-image"}
     - if listing.listing_images.size > 0
       = link_to listing, :class => "home-list-image-container-mobile", :target => Rails.env != 'test' ? '_blank' : '_self' do
