@@ -4,18 +4,24 @@ require 'mina/git'
 # require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
-# Basic settings:
-#   domain       - The hostname to SSH to.
-#   deploy_to    - Path to deploy into.
-#   repository   - Git repo to clone from. (needed by mina/git)
-#   branch       - Branch name to deploy. (needed by mina/git)
+deploy_environment = (ENV['RAILS_ENV'] || 'staging').to_s.downcase
 
-set :user, 'fairone'
-set :domain, '128.199.161.161'
-set :deploy_to, '/home/fairone/sharetribe'
+case deploy_environment
+  when 'staging'
+    set :domain, '128.199.161.161'
+    set :user, 'fairone'    # Username in the server to SSH to.
+    set :rails_env, 'staging'
+    set :deploy_to, '/home/fairone/sharetribe'
+  when 'production'
+    set :domain,    'localhost'
+    set :user,      'jishi'
+    set :rails_env, 'production'
+    set :deploy_to, '/home/jishi/app'
+end
+
 set :repository, 'git@bitbucket.org:banghuaren/jishi.git'
 set :branch, 'develop'
-set :rails_env, 'staging'
+
 
 # For system-wide RVM install.
 #   set :rvm_path, '/usr/local/rvm/bin/rvm'
@@ -79,7 +85,7 @@ task :deploy => :environment do
     to :launch do
       # Reload nginx config so `current` symlink is correct
       queue 'sudo service nginx reload'
-      queue "eye restart fairone"
+      queue "eye restart #{user}"
     end
   end
 end
