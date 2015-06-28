@@ -132,7 +132,7 @@ module Kassi
       paperclip_options.merge!({
         :path => ":class/:attachment/:id/:style_:filename",
         :url => ":s3_alias_url",
-        :s3_host_alias => Rails.env.production? ? 'img.ohmyfair.com' : 'img.stagingmk.com',
+        :s3_host_alias => Rails.env.production? ? 'img.gotomk.com' : 'img.stagingmk.com',
         :storage => :s3,
         # :s3_protocol => 'https',
         :s3_credentials => {
