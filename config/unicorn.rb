@@ -6,8 +6,8 @@ pid               "#{ENV['APP_PATH']}/tmp/pids/unicorn.pid"
 listen            "#{ENV['APP_PATH']}/tmp/sockets/unicorn.sock"
 working_directory "#{ENV['APP_PATH']}/current"
 
-stderr_path "#{ENV['APP_PATH']}/shared/log/fairone-web.log"
-stdout_path "#{ENV['APP_PATH']}/shared/log/fairone-web.log"
+stderr_path "#{ENV['APP_PATH']}/shared/log/jishi-web.log"
+stdout_path "#{ENV['APP_PATH']}/shared/log/jishi-web.log"
 
 before_exec do |server|
   ENV['BUNDLE_GEMFILE'] = "#{ENV['APP_PATH']}/current/Gemfile"
