@@ -248,8 +248,7 @@ module MarketplaceService
           LEFT JOIN participations    ON (participations.conversation_id = conversations.id AND participations.person_id = #{params[:person_id]})
 
           # Where person and community
-          WHERE conversations.community_id = #{params[:community_id]}
-          AND conversations.id IN (#{params[:conversation_ids].join(',')})
+          WHERE conversations.id IN (#{params[:conversation_ids].join(',')})
 
           # Ignore initiated and deleted
           AND (
@@ -333,8 +332,7 @@ module MarketplaceService
           LEFT JOIN participations    AS other_participation ON (other_participation.conversation_id = conversations.id AND other_participation.person_id != #{params[:person_id]})
 
           # Where person and community
-          WHERE conversations.community_id = #{params[:community_id]}
-          AND conversations.id IN (#{params[:conversation_ids].join(',')})
+          WHERE conversations.id IN (#{params[:conversation_ids].join(',')})
 
           # Ignore initiated and deleted
           AND (
@@ -359,8 +357,7 @@ module MarketplaceService
           LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
 
           # Where person and community
-          WHERE conversations.community_id = #{params[:community_id]}
-          AND conversations.id IN (#{params[:conversation_ids].join(',')})
+          WHERE conversations.id IN (#{params[:conversation_ids].join(',')})
 
           # Ignore initiated and deleted
           AND (
