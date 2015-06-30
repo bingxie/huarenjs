@@ -881,7 +881,7 @@ module ApplicationHelper
 
   def show_big_cover_photo?
     # @homepage && (!@current_user || params[:big_cover_photo])
-    @current_community.ident == 'www' || params[:big_cover_photo]
+    (@homepage && @current_community.ident == 'www') || params[:big_cover_photo]
   end
 
   def sort_link_direction(column)
