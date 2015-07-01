@@ -13,7 +13,7 @@ case deploy_environment
     set :rails_env, 'staging'
     set :deploy_to, '/home/fairone/sharetribe'
   when 'production'
-    set :domain,    'localhost'
+    set :domain,    '128.199.184.169'
     set :user,      'jishi'
     set :rails_env, 'production'
     set :deploy_to, '/home/jishi/app'
