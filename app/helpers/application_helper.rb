@@ -155,6 +155,11 @@ module ApplicationHelper
       "work_spot" => "ss-briefcase",
       "cars" => "ss-car",
       "raclette_grill" => "ss-cookingutensils",
+
+      # Jishi
+      "delivery" => "ss-deliveryvan",
+      "balloon" => "ss-balloon",
+
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
@@ -836,9 +841,15 @@ module ApplicationHelper
     link_to(listing.author.name(@current_community), listing.author, {:title => listing.author.name(@current_community)})
   end
 
-  def nav_v_link(subdomain, link_text, icon_name = nil)
-    link_to "http://#{subdomain}.#{APP_CONFIG.domain}", :class => @current_community.ident == subdomain ? 'current' : '' do
+  def nav_v_link(subdomain, link_text, icon_name)
+    link_to root_url(subdomain: subdomain, locale: nil), :class => @current_community.ident == subdomain ? 'current' : '' do
       icon_tag(icon_name, ["icon-with-text"]) + link_text
+    end
+  end
+
+  def new_community_listing_link(subdomain, icon_name, community_name)
+    link_to new_listing_url(subdomain: subdomain, locale: nil) do
+      icon_tag(icon_name, ["icon-with-text"]) + t("listings.new.link_a_new_community_listing", community: community_name)
     end
   end
 

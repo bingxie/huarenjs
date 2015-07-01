@@ -8,7 +8,7 @@
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
 - content_for :title_header do
-  %h1= t("listings.new.post_a_new_listing")
+  %h1= t("listings.new.post_a_new_community_listing", :community => @current_community.name(I18n.locale))
 #new_listing_form.new-listing-form.centered-section
 
   #selected-groups

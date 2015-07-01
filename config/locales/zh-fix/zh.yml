@@ -1,4 +1,8 @@
 zh:
+  listings:
+    new:
+      link_a_new_community_listing: "发布%{community}"
+      post_a_new_community_listing: "发布%{community}信息"
   menu:
     home: 首页
     used: 二手货

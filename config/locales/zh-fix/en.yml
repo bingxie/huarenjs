@@ -1,4 +1,8 @@
 en:
+  listings:
+    new:
+      link_a_new_community_listing: "New %{community} listing"
+      post_a_new_community_listing: "New %{community} listing"
   menu:
     home: Home
     used: Used

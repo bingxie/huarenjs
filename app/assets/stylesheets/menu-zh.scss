@@ -1,5 +1,14 @@
 @import "mixins/all";
 
+.www-new-listing.toggle.toggled {
+  .new-listing-link {
+    background-color: transparent;
+  }
+  .toggle-menu a:hover {
+    background-color: $link2;
+  }
+}
+
 .link-more {
   float: right;
   font-size: em(12);
@@ -9,7 +18,7 @@
   background: #E8E8E8 none repeat scroll 0% 0%;
 }
 .toggle-menu .current {
-  background: #16a085;
+  background: $link;
 }
 #cssmenu {
   padding-left: em(14);
