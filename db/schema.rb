@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(:version => 20150806114717) do
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_active_admin_comments_on_resource_type_and_resource_id"
 
+  create_table "admin_homepages", :force => true do |t|
+    t.string   "community_id", :null => false
+    t.integer  "order"
+    t.integer  "listing_id",   :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
