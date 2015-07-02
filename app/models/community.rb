@@ -295,6 +295,12 @@ class Community < ActiveRecord::Base
     name(locale)
   end
 
+  # hack for activeadmin to display the name
+  # because the full_name method need a param
+  def display_name
+    self.ident
+  end
+
   # If community name has several words, add an extra space
   # to the end to make Finnish translation look better.
   def name_with_separator(locale)
