@@ -1,5 +1,8 @@
 Kassi::Application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   namespace :mercury do
     resources :images
   end
@@ -261,6 +264,7 @@ Kassi::Application.routes.draw do
     end
 
     devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'}
+  ActiveAdmin.routes(self)
     devise_scope :person do
       # these matches need to be before the general resources to have more priority
       get "/people/confirmation" => "confirmations#show", :as => :confirmation

@@ -136,3 +136,10 @@ group :development, :test do
 end
 
 gem 'strong_parameters'
+
+gem 'activeadmin'
+
+# Plus integrations with:
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
