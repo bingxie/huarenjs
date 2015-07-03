@@ -480,8 +480,7 @@ class Person < ActiveRecord::Base
   end
 
   def banned_at?(community)
-    memberships = self.community_memberships.find_by_community_id(community.id)
-    !memberships.nil? && memberships.banned?
+    self.community_memberships.any? { |cm| cm.banned?}
   end
 
   def has_email?(address)
@@ -691,7 +690,7 @@ class Person < ActiveRecord::Base
   end
 
   def need_confirm_email?
-    CommunityMembership.where(person_id: id, status: "accepted").none?
+    !self.community_memberships.empty? && self.community_memberships.all? { |cm| cm.pending_email_confirmation?}
   end
 
   # Returns and email that is pending confirmation
