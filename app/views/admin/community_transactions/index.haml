@@ -9,7 +9,7 @@
 .left-navi-section
   %h2= t("admin.communities.transactions.transactions", community_name: community.name(I18n.locale))
 
-  %span#admin_transactions_count= page_entries_info(conversations, :model => "Transaction")
+  %span#admin_transactions_count= page_entries_info(conversations, :entry_name => "Transaction")
 
   %table#admin_transactions
     %thead
