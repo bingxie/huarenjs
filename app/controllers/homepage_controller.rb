@@ -10,7 +10,9 @@ class HomepageController < ApplicationController
     @homepage = true
 
     if @current_community.ident == 'www'
-      @listings = Listing.visible_to(nil, nil, [2,3,7,8])
+      @latest_used_listings = AdminHomepage.find_listings('auused')
+      @latest_rent_listings = AdminHomepage.find_listings('aurent')
+
       render 'jishi_home/index'
       return
     end

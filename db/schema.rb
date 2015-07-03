@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(:version => 20150806114717) do
 
   create_table "admin_homepages", :force => true do |t|
     t.string   "community_id", :null => false
-    t.integer  "order"
     t.integer  "listing_id",   :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false

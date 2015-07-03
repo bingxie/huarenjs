@@ -3,7 +3,6 @@ ActiveAdmin.register AdminHomepage do
     column :id
     column :community_id
     column :listing_id
-    column :order
     column :updated_at
 
     default_actions
@@ -15,7 +14,6 @@ ActiveAdmin.register AdminHomepage do
     f.inputs "New Listing" do
       f.input :community_id
       f.input :listing_id
-      f.input :order
     end
     f.actions
   end
