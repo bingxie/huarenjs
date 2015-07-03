@@ -348,7 +348,8 @@ class ApplicationController < ActionController::Base
       {
         "community_id" => @current_community.id,
         "consent"      => "SHARETRIBE1.0",
-        "person_id"    => @current_user.id
+        "person_id"    => @current_user.id,
+        "status"       => "pending_email_confirmation"
       }
     @community_membership = CommunityMembership.new(new_community_membership)
 
@@ -385,7 +386,7 @@ class ApplicationController < ActionController::Base
   def check_email_confirmation
     # If confirmation is required, but not done, redirect to confirmation pending announcement page
     # (but allow confirmation to come through)
-    if @current_community && @current_user && @current_user.pending_email_confirmation_to_join?(@current_community_membership)
+    if @current_community && @current_user && @current_user.need_confirm_email?
       flash[:warning] = t("layouts.notifications.you_need_to_confirm_your_account_first")
       redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
     end

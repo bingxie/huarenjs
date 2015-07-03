@@ -690,6 +690,10 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def need_confirm_email?
+    CommunityMembership.where(person_id: id, status: "accepted").none?
+  end
+
   # Returns and email that is pending confirmation
   # If community is given as parameter, in case of many pending
   # emails the one required by the community is returned
