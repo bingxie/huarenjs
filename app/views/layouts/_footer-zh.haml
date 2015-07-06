@@ -10,10 +10,6 @@
           = icon_tag("feedback", ["icon-with-text"])
           = t("header.contact_us")
       %li
-        = link_to new_invitation_path, :class => 'home-categories-link' do
-          = icon_tag("invite", ["icon-with-text"])
-          = t("header.invite")
-      %li
         - if @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
           = link_to edit_details_admin_community_path(@current_community), :class => 'home-categories-link' do
             = icon_tag("admin", ["icon-with-text"])

@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: admin_homepages
+#
+#  id           :integer          not null, primary key
+#  community_id :string(255)      not null
+#  listing_id   :integer          not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 class AdminHomepage < ActiveRecord::Base
   attr_accessible :community_id, :listing_id
 
