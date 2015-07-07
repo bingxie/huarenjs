@@ -10,7 +10,7 @@
     - if @community_customization && @community_customization.about_page_content
       - content = @community_customization.about_page_content.html_safe
     - else
-      - content = render :partial => "default_about_page"
+      - content = render :partial => "default_about_page_zh"
 
     - content_for :meta_description, StringUtils.first_words(strip_tags(content.html_safe))
     - content_for :keywords, StringUtils.keywords(strip_tags(content.html_safe))
