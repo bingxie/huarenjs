@@ -144,6 +144,8 @@ class ListingsController < ApplicationController
   end
 
   def new
+    redirect_to root_url(locale: nil) and return if @current_community.ident == 'www'
+
     category_tree = CategoryViewUtils.category_tree(
       categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
       shapes: get_shapes,
