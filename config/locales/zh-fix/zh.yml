@@ -6,13 +6,13 @@ zh:
   menu:
     home: 首页
     used: 二手货
-    rent: 房屋租赁
+    house: 房屋租赁
     life: 生活服务
     social: 社交服务
     job: 求职招聘
   homepage:
     new_used: 最新二手货
-    new_rent: 最新房屋租赁
+    new_house: 最新房屋租赁
     see_more: 查看更多>>>
   date:
     abbr_day_names:

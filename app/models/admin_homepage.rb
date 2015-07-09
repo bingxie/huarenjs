@@ -14,6 +14,7 @@ class AdminHomepage < ActiveRecord::Base
 
   def self.find_listings(community_id)
     listing_ids = AdminHomepage.where(community_id: community_id).limit(4).order('updated_at desc').pluck(:listing_id)
+    return [] if listing_ids.size == 0
     Listing.visible_to(nil, nil, listing_ids).order("field(id, #{listing_ids.join(',')})")
   end
 end

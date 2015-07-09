@@ -11,7 +11,7 @@ class HomepageController < ApplicationController
 
     if @current_community.ident == 'www'
       @latest_used_listings = AdminHomepage.find_listings('auused')
-      @latest_rent_listings = AdminHomepage.find_listings('aurent')
+      @latest_rent_listings = AdminHomepage.find_listings('auhouse')
 
       render 'jishi_home/index'
       return
