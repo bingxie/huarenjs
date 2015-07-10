@@ -271,7 +271,7 @@ class Person < ActiveRecord::Base
   # Deprecated: This is view logic (how to display name) and thus should not be in model layer
   # Consider using PersonViewUtils
   def full_name
-    "#{given_name} #{family_name}"
+    I18n.locale == :zh ? "#{family_name}#{given_name}" : "#{given_name} #{family_name}"
   end
 
   # Deprecated: This is view logic (how to display name) and thus should not be in model layer
