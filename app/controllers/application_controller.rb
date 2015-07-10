@@ -349,7 +349,7 @@ class ApplicationController < ActionController::Base
         "community_id" => @current_community.id,
         "consent"      => "SHARETRIBE1.0",
         "person_id"    => @current_user.id,
-        "status"       => "pending_email_confirmation"
+        "status"       => @current_user.need_confirm_email? ? "pending_email_confirmation" : "accepted"
       }
     @community_membership = CommunityMembership.new(new_community_membership)
 

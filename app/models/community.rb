@@ -501,12 +501,17 @@ class Community < ActiveRecord::Base
   # returns true if membership was now approved
   # false if it wasn't allowed or if already a member
   def approve_pending_membership(person, email_address=nil)
-    membership = community_memberships.where(:person_id => person.id, :status => "pending_email_confirmation").first
-    if membership && (email_address.nil? || email_allowed?(email_address))
-      membership.update_attribute(:status, "accepted")
-      return true
+    # hack for huarenjs
+    memberships = CommunityMembership.where(person_id: person.id, status: "pending_email_confirmation")
+    memberships.map do |membership|
+      if email_address.nil? || email_allowed?(email_address)
+        membership.update_attribute(:status, "accepted")
+      else
+        return false
+      end
     end
-    return false
+
+    return true
   end
 
   def main_categories
