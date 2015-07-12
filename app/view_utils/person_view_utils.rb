@@ -92,7 +92,7 @@ module PersonViewUtils
   # rubocop:enable ParameterLists
 
   def full_name(first_name, last_name)
-    "#{first_name} #{last_name}"
+    I18n.locale == :zh ? "#{last_name}#{first_name}" : "#{first_name} #{last_name}"
   end
 
   def first_name_with_initial(first_name, last_name)
