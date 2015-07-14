@@ -156,8 +156,8 @@ class Community < ActiveRecord::Base
 
   serialize :settings, Hash
 
-  DEFAULT_LOGO = ActionController::Base.helpers.asset_path("logos/mobile/default.png")
-  DEFAULT_WIDE_LOGO = ActionController::Base.helpers.asset_path("logos/full/default.png")
+  DEFAULT_LOGO = ActionController::Base.helpers.asset_path("logos/mobile/m-logo-h.png")
+  DEFAULT_WIDE_LOGO = ActionController::Base.helpers.asset_path("logos/full/f-logo-h.png")
 
   has_attached_file :logo,
                     :styles => {
