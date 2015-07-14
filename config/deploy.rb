@@ -28,7 +28,7 @@ set :branch, 'develop'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'log', 'config/config.yml']
+set :shared_paths, ['config/database.yml', 'log', 'config/config.yml', "config/#{deploy_environment}.sphinx.conf"]
 
 # Optional settings:
 #   set :user, 'foobar'    # Username in the server to SSH to.
@@ -61,6 +61,9 @@ task :setup => :environment do
 
   queue! %[touch "#{deploy_to}/#{shared_path}/config/config.yml"]
   queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/config.yml'."]
+
+  queue! %[touch "#{deploy_to}/#{shared_path}/config/config.yml"]
+  queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/#{deploy_environment}.sphinx.conf'."]
 
   # For unicorn and deplayed_job
   queue "mkdir -p #{deploy_to}/#{current_path}/tmp/pids"
