@@ -228,10 +228,10 @@ GEM
       rspec (>= 2.14, < 4.0)
     haml (4.0.5)
       tilt
-    hashie (3.4.2)
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
+    hashie (3.4.2)
     highline (1.6.21)
     hike (1.2.3)
     htmlentities (4.3.2)
