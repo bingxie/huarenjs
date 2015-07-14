@@ -84,7 +84,11 @@
 
 %link{:rel => "shortcut icon", :href => @current_community.favicon }
 
-%link{:rel => "apple-touch-icon-precomposed",:href => @current_community.logo.url(:apple_touch)}
+-# %link{:rel => "apple-touch-icon-precomposed",:href => @current_community.logo.url(:apple_touch)}
+%link{:rel => "apple-touch-icon", sizes: "57x57", :href => asset_path('logos/apple/apple-touch-icon-iphone-57.png')}
+%link{:rel => "apple-touch-icon", sizes: "72x72", :href => asset_path('logos/apple/apple-touch-icon-ipad-72.png')}
+%link{:rel => "apple-touch-icon", sizes: "114x114", :href => asset_path('logos/apple/apple-touch-icon-iphone-retina-114.png')}
+%link{:rel => "apple-touch-icon", sizes: "144x144", :href => asset_path('logos/apple/apple-touch-icon-ipad-retina-144.png')}
 
 = auto_discovery_link_tag(:atom, atom_feed_url )
 
