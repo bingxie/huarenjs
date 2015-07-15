@@ -4,17 +4,17 @@
     - if @current_community.ident == 'www'
       .header-right.header-padding.www-new-listing.toggle{data: {toggle: '#header-www-new-listing', 'toggle-anchor-position' => 'right', 'toggle-position' => 'absolute'}}
         = link_to "#", :class => "www-new-listing new-listing-link", :id => "new-listing-link" do
-          %span.visible-mobile
+          %span.visible-large-mobile
             = t("homepage.index.post_new_listing")
-          %span.hidden-mobile
+          %span.hidden-large-mobile
             = t("homepage.index.post_new_listing_short")
         = render :partial => "layouts/header_www_new_listing"
     - else
       .header-right.header-padding
         = link_to new_listing_path, :class => "new-listing-link", :id => "new-listing-link" do
-          %span.visible-mobile
+          %span.visible-large-mobile
             = t("homepage.index.post_new_listing")
-          %span.hidden-mobile
+          %span.hidden-large-mobile
             = t("homepage.index.post_new_listing_short")
     .header-right.hidden
       #header-menu-desktop-anchor.header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}

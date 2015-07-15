@@ -1,15 +1,15 @@
 @import "mixins/all";
 
-.visible-mobile {
+.visible-large-mobile {
   display: none !important;
 
-  @include media(mobile) {
+  @include media(large-mobile) {
     display: block !important;
   }
 }
 
-.hidden-mobile {
-  @include media(mobile) {
+.hidden-large-mobile {
+  @include media(large-mobile) {
     display: none !important;
   }
 }
