@@ -29,7 +29,7 @@ class InboxesController < ApplicationController
 
       if inbox_row[:type] == :transaction
         extended_inbox.merge(
-          listing_url: listing_path(id: inbox_row[:listing_id])
+          listing_url: listing_url(id: inbox_row[:listing_id], subdomain: subdomain_from_transaction(inbox_row[:transaction_id]), locale: nil)
         )
       else
         extended_inbox
@@ -77,9 +77,9 @@ class InboxesController < ApplicationController
 
   def path_to_conversation_or_transaction(inbox_item)
     if inbox_item[:type] == :transaction
-      person_transaction_path(:person_id => inbox_item[:current][:username], :id => inbox_item[:transaction_id])
+      person_transaction_url(:person_id => inbox_item[:current][:username], :id => inbox_item[:transaction_id],subdomain: subdomain_from_transaction(inbox_item[:transaction_id]), locale: nil)
     else
-      single_conversation_path(:conversation_type => "received", :id => inbox_item[:conversation_id])
+      single_conversation_url(:conversation_type => "received", :id => inbox_item[:conversation_id], subdomain: subdomain_from_conversation(inbox_item[:conversation_id]), locale: nil)
     end
   end
 
@@ -88,5 +88,13 @@ class InboxesController < ApplicationController
                           url: person_path(id: person_entity[:username]),
                           display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
                         })
+  end
+
+  def subdomain_from_transaction(transaction_id)
+    Transaction.find(transaction_id).community.ident
+  end
+
+  def subdomain_from_conversation(conversation_id)
+    Conversation.find(conversation_id).community.ident
   end
 end
