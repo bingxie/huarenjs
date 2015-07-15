@@ -294,6 +294,7 @@ class Person < ActiveRecord::Base
   # Deprecated: This is view logic (how to display name) and thus should not be in model layer
   # Consider using PersonViewUtils
   def given_name_or_username
+    return name_or_username('full_name') if I18n.locale == :zh #hack for jishi
     if is_organization
       # Quick and somewhat dirty solution. `given_name_or_username`
       # is quite explicit method name and thus it should return the
