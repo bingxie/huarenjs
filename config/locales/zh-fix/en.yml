@@ -10,3 +10,6 @@ en:
     life: Life
     social: Social
     job: Job
+  homepage:
+    index:
+      post_new_listing_short: Post

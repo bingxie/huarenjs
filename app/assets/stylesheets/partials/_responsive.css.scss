@@ -1,5 +1,19 @@
 @import "mixins/all";
 
+.visible-mobile {
+  display: none !important;
+
+  @include media(mobile) {
+    display: block !important;
+  }
+}
+
+.hidden-mobile {
+  @include media(mobile) {
+    display: none !important;
+  }
+}
+
 .visible-tablet {
   display: none !important;
 

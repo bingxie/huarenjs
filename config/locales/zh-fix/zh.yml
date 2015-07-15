@@ -14,6 +14,8 @@ zh:
     new_used: 最新二手货
     new_house: 最新房屋租赁
     see_more: 查看更多>>>
+    index:
+      post_new_listing_short: 发布
   date:
     abbr_day_names:
     - 周日
