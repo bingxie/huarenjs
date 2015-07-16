@@ -24,7 +24,7 @@
       - unread_count = MarketplaceService::Inbox::Query.notification_count(user.id, @current_community.id)
 
       .header-right
-        = render :partial => "layouts/header_anchors", locals: {user: user}
+        = render :partial => "layouts/header_anchors", locals: {unread_count: unread_count, user: user}
         = render :partial => "layouts/header_user_menu", locals: {unread_count: unread_count, user: user}
 
       = render :partial => "layouts/header_right_visible_tablet", locals: {unread_count: unread_count, user: user}

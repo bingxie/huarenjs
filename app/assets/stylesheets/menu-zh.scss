@@ -9,6 +9,32 @@
   }
 }
 
+.new-badge {
+  position: absolute;
+  top: em(22); // Magic, just looks good
+  left: em(27); // Magic, just looks good
+  background: $link;
+  color: $background;
+  @include badge(20px);
+
+  &.big-badge {
+    @include badge(26px);
+    top: em(19); // Magic, just looks good
+    left: em(25); // Magic, just looks good
+  }
+
+  &.huge-badge {
+    @include badge(32px);
+    top: em(17); // Magic, just looks good
+    left: em(22); // Magic, just looks good
+  }
+}
+
+.head-image-link {
+  display: block;
+  position: relative;
+}
+
 .link-more {
   float: right;
   font-size: em(12);
