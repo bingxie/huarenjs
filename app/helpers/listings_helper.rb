@@ -121,7 +121,16 @@ module ListingsHelper
   end
 
   def shape_name(listing)
-    t(listing.shape_name_tr_key)
+    listing_community_id = listing.communities.first.id
+    if listing_community_id == @current_community.id
+      t(listing.shape_name_tr_key)
+    else # for invidual home page
+      all_translations = TranslationService::API::Api.translations.get(listing_community_id)[:data]
+      t = all_translations.find do |tr|
+        tr[:translation_key] == listing.shape_name_tr_key
+      end
+      t[:translation]
+    end
   end
 
   def action_button_label(listing)
