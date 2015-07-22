@@ -2,7 +2,7 @@
   .col-12
     %ul.footer-nav
       %li
-        = link_to about_infos_path, :class => 'home-categories-link' do
+        = link_to (Rails.env.test? ? about_infos_path : about_infos_url(subdomain: 'www', locale: nil)), :class => 'home-categories-link' do
           = icon_tag("information", ["icon-with-text"])
           = t("header.about")
       %li

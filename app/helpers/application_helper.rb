@@ -536,7 +536,7 @@ module ApplicationHelper
       {
         :text => t('layouts.infos.about'),
         :icon_class => icon_class("information"),
-        :path => about_infos_path,
+        :path => Rails.env.test? ? about_infos_path : about_infos_url(subdomain: 'www', locale: nil),
         :name => "about"
       }
     ]
@@ -544,20 +544,20 @@ module ApplicationHelper
     #   links << {
     #     :text => t('layouts.infos.how_to_use'),
     #     :icon_class => icon_class("how_to_use"),
-    #     :path => how_to_use_infos_path,
+    #     :path => Rails.env.test? ? how_to_use_infos_path : how_to_use_infos_url(subdomain: 'www', locale: nil),
     #     :name => "how_to_use"
     #   }
     # end
     links << {
       :text => t('layouts.infos.register_details'),
       :icon_class => icon_class("privacy"),
-      :path => privacy_infos_path,
+      :path => Rails.env.test? ? privacy_infos_path : privacy_infos_url(subdomain: 'www', locale: nil),
       :name => "privacy"
     }
     links << {
       :text => t('layouts.infos.terms'),
       :icon_class => icon_class("terms"),
-      :path => terms_infos_path,
+      :path => Rails.env.test? ? terms_infos_path : terms_infos_url(subdomain: 'www', locale: nil),
       :name => "terms"
     }
   end
