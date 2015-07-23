@@ -5,6 +5,12 @@
         = link_to (Rails.env.test? ? about_infos_path : about_infos_url(subdomain: 'www', locale: nil)), :class => 'home-categories-link' do
           = icon_tag("information", ["icon-with-text"])
           = t("header.about")
+
+      %li
+        = link_to (Rails.env.test? ? how_to_use_infos_path : how_to_use_infos_url(subdomain: 'www', locale: nil)), :class => 'home-categories-link' do
+          = icon_tag("how_to_use", ["icon-with-text"])
+          = t('layouts.infos.how_to_use')
+
       %li
         = link_to new_user_feedback_path, :class => 'home-categories-link' do
           = icon_tag("feedback", ["icon-with-text"])
