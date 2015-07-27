@@ -2,6 +2,10 @@
 
 production:
   version: '2.1.8'
+  pid_file: '/home/jishi/app/tmp/pids/searchd.pid'
+  indices_location: '/home/jishi/app/shared/db/sphinx'
+  configuration_file: '/home/jishi/app/shared/config/production.sphinx.conf'
+  binlog_path: '/home/jishi/app/shared/log'
   mysql41: 3564
   address: <%= ENV['SPHINX_HOST'] || '' %>
   # min_infix_len: 3
