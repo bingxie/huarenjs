@@ -108,6 +108,7 @@ GEM
       timers (~> 1.1.0)
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
+    chronic (0.10.2)
     chunky_png (1.2.6)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -525,6 +526,8 @@ GEM
       multipart-post (~> 1.2.0)
       trollop (~> 2.0)
     websocket (1.0.7)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
     will_paginate (3.0.3)
     xml-simple (1.1.4)
     xpath (2.0.0)
@@ -626,6 +629,7 @@ DEPENDENCIES
   unicorn (~> 4.6.3)
   validates_timeliness (~> 3.0)
   web_translate_it
+  whenever
   will_paginate
   xpath
   zeus (= 0.15.1)

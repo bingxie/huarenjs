@@ -3,6 +3,7 @@ require 'mina/rails'
 require 'mina/git'
 # require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 require 'mina/rvm'    # for rvm support. (http://rvm.io)
+require 'mina/whenever'
 
 deploy_environment = (ENV['RAILS_ENV'] || 'staging').to_s.downcase
 
@@ -89,6 +90,7 @@ task :deploy => :environment do
       # Reload nginx config so `current` symlink is correct
       queue 'sudo service nginx reload'
       queue "eye restart #{user}"
+      invoke :'whenever:update'
     end
   end
 end

@@ -84,6 +84,8 @@ gem 'cache_digests'
 
 gem 'lograge'
 
+gem 'whenever', :require => false
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
 end
