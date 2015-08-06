@@ -109,6 +109,7 @@ group :development do
   gem 'i18n-tasks', '~> 0.6.2'
   gem 'quiet_assets'
   gem 'better_errors'
+  gem 'activerecord-colored_log_subscriber'
 end
 
 group :test do

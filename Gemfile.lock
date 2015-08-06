@@ -54,6 +54,8 @@ GEM
       activesupport (= 3.2.21)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-colored_log_subscriber (0.1.0)
+      activerecord (>= 3.2, < 5.0)
     activeresource (3.2.21)
       activemodel (= 3.2.21)
       activesupport (= 3.2.21)
@@ -541,6 +543,7 @@ PLATFORMS
 DEPENDENCIES
   action_mailer_cache_delivery
   activeadmin
+  activerecord-colored_log_subscriber
   airbrake (~> 4.1.0)
   annotate
   aws-sdk
