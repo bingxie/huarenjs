@@ -292,7 +292,7 @@ class ApplicationController < ActionController::Base
   end
 
   def self.parse_community_identifiers_from_host(host, app_domain)
-    app_domain_regexp = Regexp.escape(app_domain)
+    # app_domain_regexp = Regexp.escape(app_domain)
     ident_with_www = /^www\.(.+)\.#{app_domain}$/.match(host)
     ident_without_www = /^(.+)\.#{app_domain}$/.match(host)
 
