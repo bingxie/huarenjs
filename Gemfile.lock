@@ -546,7 +546,8 @@ DEPENDENCIES
   activerecord-colored_log_subscriber
   airbrake (~> 4.1.0)
   annotate
-  aws-sdk
+  aws-sdk (~> 2)
+  aws-sdk-v1
   better_errors
   braintree
   cache_digests
