@@ -56,6 +56,7 @@ Feature: User edits his own listing
     Then I should see "Sledgehammer" within "#listing-title"
 
   @javascript
+  @skip_phantomjs
   Scenario: Trying to update an item request with invalid information
     Given there are following users:
       | person |
